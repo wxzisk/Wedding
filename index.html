@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>电子请帖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Microsoft YaHei", sans-serif;
+      background: #000;
+      color: #fff;
+      overflow: hidden;
+    }
+    .page {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+    }
+    .title {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .text {
+      font-size: 18px;
+    }
+    .music-control {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 20px;
+      color: #000;
+    }
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s ease;
+    }
+    .hidden {
+      transform: translateY(100%);
+    }
+    .active {
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 音乐 -->
+  <audio id="bgm" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+  <div class="music-control" id="musicBtn">▶</div>
+
+  <!-- 页面内容 -->
+  <div class="slide active page" style="background-image:url('img1.jpg')">
+    <div class="title">诚邀您的到来</div>
+    <div class="text">我们将在此刻与您分享美好时光</div>
+  </div>
+
+  <div class="slide hidden page" style="background-image:url('img2.jpg')">
+    <div class="title">时间地点</div>
+    <div class="text">2025年10月1日 · 北京市朝阳区</div>
+  </div>
+
+  <div class="slide hidden page" style="background-image:url('img3.jpg')">
+    <div class="title">期待见到您</div>
+    <div class="text">您的到来将让这一刻更加特别</div>
+  </div>
+
+  <script>
+    // 音乐播放控制
+    const bgm = document.getElementById('bgm');
+    const musicBtn = document.getElementById('musicBtn');
+    let playing = false;
+    musicBtn.addEventListener('click', () => {
+      if (playing) {
+        bgm.pause();
+        musicBtn.textContent = '▶';
+      } else {
+        bgm.play();
+        musicBtn.textContent = '⏸';
+      }
+      playing = !playing;
+    });
+
+    // 翻页逻辑
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+    document.body.addEventListener('click', () => {
+      slides[current].classList.remove('active');
+      slides[current].classList.add('hidden');
+      current = (current + 1) % slides.length;
+      slides[current].classList.remove('hidden');
+      slides[current].classList.add('active');
+    });
+  </script>
+</body>
+</html>
