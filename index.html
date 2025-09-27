@@ -11,7 +11,22 @@
       font-family: "Microsoft YaHei", sans-serif;
       background: #fffaf7;
       color: #333;
+      overflow: hidden; /* 禁止默认滚动条 */
     }
+      /* 滚动容器 */
+    .scroll-container {
+      position: relative;
+      height: 100vh; /* 填满屏幕高度 */
+      overflow: hidden;
+    }
+
+    /* 滚动内容 */
+    .scroll-content {
+      position: absolute;
+      width: 100%;
+      top: 100%; /* 初始位置在底部 */
+    }
+
     .section {
       padding: 30px 20px;
       text-align: center;
@@ -322,6 +337,22 @@
       }
       playing = !playing;
     });
+    
+    const content = document.getElementById('scrollContent');
+    let y = window.innerHeight; // 初始位置在容器底部
+    const speed = 0.5; // 每帧移动的像素（越小越慢）
+
+    function scrollUp() {
+      y -= speed;
+      content.style.top = y + 'px';
+      if (y + content.offsetHeight > 0) {
+        requestAnimationFrame(scrollUp); // 继续滚动
+      }
+    }
+
+    window.onload = () => {
+      requestAnimationFrame(scrollUp);
+    };
   </script>
 </body>
 </html>
