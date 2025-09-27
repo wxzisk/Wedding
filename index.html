@@ -310,6 +310,27 @@
     const bgm = document.getElementById('bgm');
     const musicBtn = document.getElementById('musicBtn');
     let playing = false;
+      // 尝试在页面加载时自动播放
+    window.addEventListener('load', () => {
+      bgm.play().then(() => {
+        playing = true;
+        musicBtn.textContent = '⏸';
+        musicBtn.classList.add('playing');
+      }).catch((err) => {
+        // 如果浏览器阻止自动播放，不做操作，等待用户点击
+        console.log('自动播放被阻止:', err);
+      });
+
+      // 自动慢滚逻辑
+      const scrollSpeed = 0.3; // 每帧滚动像素
+      function autoScroll() {
+        window.scrollBy(0, scrollSpeed);
+        if ((window.innerHeight + window.scrollY) < document.body.scrollHeight) {
+          requestAnimationFrame(autoScroll);
+        }
+      }
+      setTimeout(() => { autoScroll(); }, 2000);
+    });
 
     musicBtn.addEventListener('click', (event) => {
       event.stopPropagation();
@@ -325,24 +346,6 @@
       playing = !playing;
     });
 
-    // 自动慢滚逻辑
-    window.addEventListener('load', () => {
-      const scrollSpeed = 0.3; // 每帧滚动像素，数字越小越慢
-      function autoScroll() {
-        // 当前滚动位置 + scrollSpeed
-        window.scrollBy(0, scrollSpeed);
-
-        // 当到达底部停止滚动
-        if ((window.innerHeight + window.scrollY) < document.body.scrollHeight) {
-          requestAnimationFrame(autoScroll);
-        }
-      }
-
-      // 延迟几秒再开始滚动，让用户先看到开头
-      setTimeout(() => {
-        autoScroll();
-      }, 2000); // 2秒延迟，可调整
-    });
   </script>
 </body>
 </html>
