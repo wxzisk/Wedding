@@ -88,6 +88,35 @@
       font-size: 24px;
       margin: 0 5px;
     }
+    .image-container {
+  position: relative;
+  display: inline-block;
+  width: 100%; /* 或者固定宽度 */
+}
+
+  .img-wrapper {
+    position: relative;     /* 让子元素可以相对定位 */
+    display: inline-block;
+  }
+
+  .img-single {
+    width: 100%;            /* 让图片自适应 */
+    height: auto;
+    display: block;
+  }
+
+  .img-text {
+    position: absolute;     /* 绝对定位 */
+    top: 50%;               /* 垂直居中 */
+    left: 50%;              /* 水平居中 */
+    transform: translate(-50%, -50%); /* 精确居中 */
+    color: white;           /* 白色文字，避免和背景冲突 */
+    font-size: 36px;        /* 调大字体 */
+    font-weight: bold;      /* 加粗 */
+    text-align: center;     /* 居中对齐 */
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.6); /* 增加阴影，提高可读性 */
+    line-height: 1.4;
+  }
 
     /* 音乐按钮 */
     .music-control {
@@ -133,7 +162,7 @@
   <div class="section">
     <div class="img-wrapper">
       <img src="img1.jpg" class="img-single">
-      <div class="img-text">10.1 我们的婚礼</div>
+      <div class="img-text">10.1 <br> 我们的婚礼 <br> Our Love</div>
     </div>
   </div>
 
@@ -146,7 +175,7 @@
   </div> -->
   <hr style="border: none; border-top: 3px double #ffb6c1; margin: 30px 0;">
   <p class="text-align:center;"> <span class="fancy-text">我们结婚了<br>Welcome to our wedding</span> </p>
-  
+
   <!-- 文本段落 -->
   <div class="section">
     <p class="text-center bold-text">当你看到这篇文章的时候</p>
@@ -158,18 +187,70 @@
     <p class="text-center">让爱以夫妻之名延续</p>
   </div>
 
-  <!-- <p style="text-align:center; font-size:20px; margin:20px 0;">🎀 🕊️ 🎀</p> -->
-  <p class="text-center">🎀 我们的故事 🎀</p>
-  <!-- <p style="text-align:center; font-size:20px; margin:20px 0;">❤︎ ❁ ❤︎</p> -->
-  <!-- 两张并列图片 -->
   <div class="section">
     <div class="img-row">
       <img src="img2.jpg">
       <img src="img3.jpg">
     </div>
-    <p class="text-center">💐 <span class="fancy-text">见证幸福的瞬间</span> 💐</p>
   </div>
 
+  <!-- <p style="text-align:center; font-size:20px; margin:20px 0;">🎀 🕊️ 🎀</p> -->
+  <p class="text-left">✨ 相遇 ✨</p>
+  <div class="section">
+    <p class="text-left">不禁感叹</p>
+    <p class="text-left">一次班群里的发问</p>
+    <p class="text-left">一次实验课的帮助</p>
+    <p class="text-left">加上一顿肯德基</p>
+    <p class="text-left">我想这就是我们的相遇</p>
+  </div>
+
+  
+  <div class="section">
+    <div class="img-row">
+      <img src="img5.jpg">
+      <img src="img6.jpg">
+    </div>
+  </div>
+
+  <p class="text-center">🎀 恋爱 🎀</p>
+  <div class="section">
+    <p class="text-center">我们约定6.1号作为恋爱纪念日</p>
+    <p class="text-center">因为希望永远像孩子一样快乐</p>
+    <p class="text-center">永远真诚</p>
+    <p class="text-center">永远热泪盈眶</p>
+  </div>
+
+
+  <div class="section">
+    <div class="img-row">
+      <img src="img8.jpg">
+      <img src="img9.jpg">
+    </div>
+  </div>
+  
+  <p class="text-right">🎉 结婚 🎉</p>
+  <div class="section">
+    <p class="text-right">结束了3年的异地</p>
+    <p class="text-right">我们一起来到北京</p>
+    <p class="text-right">相互陪伴</p>
+    <p class="text-right">拥有了幸福的小窝</p>
+    <p class="text-right">2025.2.19领取了红本本</p>
+  </div>
+  <!-- 两张并列图片 -->
+
+  <div class="section">
+    <div class="img-row">
+      <img src="img7.jpg">
+      <img src="img99.jpg">
+    </div>
+  </div>
+  <div class="section">
+    <div class="img-column">
+      <img src="img10.jpg">
+    </div>
+  </div>
+
+  <p class="text-center">💐 <span class="fancy-text">见证幸福的瞬间</span> 💐</p>
   <!-- 文本段落 -->
   <div class="section">
     <p class="text-center bold-text">时间：2025年10月1日</p>
