@@ -58,12 +58,20 @@
     }
 
     /* 并排图片 */
-    .img-row {
+    .img-row.horizontal {
       display: flex;
+      flex-direction: row; /* 默认横向排列 */
       justify-content: center;
       gap: 10px;
-      margin: 15px 0;
     }
+
+    .img-row.vertical {
+      display: flex;
+      flex-direction: column; /* 竖向排列 */
+      align-items: center;
+      gap: 10px;
+    }
+
     .img-row img {
       width: 48%;
       border-radius: 10px;
@@ -89,10 +97,10 @@
       margin: 0 5px;
     }
     .image-container {
-  position: relative;
-  display: inline-block;
-  width: 100%; /* 或者固定宽度 */
-}
+    position: relative;
+    display: inline-block;
+    width: 100%; /* 或者固定宽度 */
+  }
 
   .img-wrapper {
     position: relative;     /* 让子元素可以相对定位 */
@@ -117,6 +125,34 @@
     text-shadow: 2px 2px 6px rgba(0,0,0,0.6); /* 增加阴影，提高可读性 */
     line-height: 1.4;
   }
+  /* 标题：自适应字号，避免手机换行太丑 */
+.title {
+  text-align: center;
+  font-size: clamp(20px, 5vw, 28px); /* 根据屏幕宽度自适应 */
+  font-weight: bold;
+  margin: 20px 0;
+  line-height: 1.4;
+}
+
+/* 三种不同字体（可以自由替换） */
+.date-text {
+  font-family: 'Georgia', serif;  /* 数字部分：优雅的衬线体 */
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.wedding-text {
+  font-family: 'KaiTi', 'STKaiti', serif; /* 中文部分：楷体/书法风 */
+  font-size: 28px;
+}
+
+.love-text {
+  font-family: 'Great Vibes', cursive;  /* 英文部分：艺术字 */
+  font-size: 30px;
+  letter-spacing: 2px;
+}
+
+
 
     /* 音乐按钮 */
     .music-control {
@@ -219,7 +255,7 @@
 
   
   <div class="section">
-    <div class="img-row">
+    <div class="img-row.horizontal">
       <img src="img5.jpg">
       <img src="img6.jpg">
     </div>
@@ -257,7 +293,7 @@
       <img src="img99.jpg">
     </div>
   </div>
-  
+
   <div class="section">
     <img src="img10.jpg" class="img-single">
   </div>
