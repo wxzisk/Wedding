@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>电子请帖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Microsoft YaHei", sans-serif;
+      background: #fffaf7;
+      color: #333;
+    }
+    .section {
+      padding: 30px 20px;
+      text-align: center;
+      position: relative;
+    }
+    .title {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    .text-center { text-align: center; font-size: 18px; margin: 10px 0; }
+    .text-left { text-align: left; font-size: 18px; margin: 10px 0; }
+    .text-right { text-align: right; font-size: 18px; margin: 10px 0; }
+
+    /* 单张图片 */
+    .img-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+    .img-single {
+      width: 90%;
+      max-width: 500px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .text-center {
+      text-align: center;
+      margin: 10px 0;   /* 普通段落间距 */
+    }
+    .spacer {
+      margin: 40px 0;   /* 空行专用，加大间距 */
+    }
+    /* 图片上的文字 */
+    .img-text {
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+      font-family: 'Brush Script MT', cursive; /* 手写艺术字 */
+    }
+
+    /* 并排图片 */
+    .img-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 15px 0;
+    }
+    .img-row img {
+      width: 48%;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* 艺术字样式 */
+    .fancy-text {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 22px;
+      color: #d63384;
+    }
+    .bold-text {
+      font-family: Georgia, serif;
+      font-size: 20px;
+      font-weight: bold;
+      color: #444;
+    }
+
+    /* 小图案 */
+    .icon {
+      font-size: 24px;
+      margin: 0 5px;
+    }
+
+    /* 音乐按钮 */
+    .music-control {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 20px;
+      color: #000;
+      z-index: 1000;
+    }
+    .music-control.playing {
+      animation: spin 3s linear infinite;
+    }
+    @keyframes spin {
+      from { transform: rotate(0); }
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 背景音乐 -->
+  <audio id="bgm" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+  <div class="music-control" id="musicBtn">▶</div>
+
+  <!-- 请帖内容 -->
+  <div class="section">
+    <div class="title">💍 汪锡峥&申可的婚礼邀请  💍</div>
+    <p class="text-center">亲爱的朋友 <br> 真诚邀请您参加我们的幸福时刻</p>
+  </div>
+
+  <!-- 第一张图片 + 文字叠加 -->
+  <div class="section">
+    <div class="img-wrapper">
+      <img src="img1.jpg" class="img-single">
+      <div class="img-text">10.1 我们的婚礼</div>
+    </div>
+  </div>
+
+  <!-- <p style="text-align:center; font-size:20px; margin:20px 0;">❀ ✿ ❀</p>
+  <div style="text-align:center; margin:30px 0;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="200" height="20" viewBox="0 0 200 20">
+      <path d="M0 10 H60 M140 10 H200 M80 10 A10 10 0 0 1 120 10" 
+            stroke="#c94f7c" stroke-width="2" fill="none"/>
+    </svg>
+  </div> -->
+  <hr style="border: none; border-top: 3px double #ffb6c1; margin: 30px 0;">
+  <p class="text-align:center;"> <span class="fancy-text">我们结婚了<br>Welcome to our wedding</span> </p>
+  
+  <!-- 文本段落 -->
+  <div class="section">
+    <p class="text-center bold-text">当你看到这篇文章的时候</p>
+    <p class="text-center bold-text">你已经被我们郑重地加入我们的invitation list了</p>
+    <p class="spacer"></p> <!-- 空行效果 -->
+    <p class="text-center">9年相伴修成正果</p>
+    <p class="text-center">一路走来的酸甜苦辣咸组成了我们的故事</p>
+    <p class="text-center">如今我们决定于今年开启人生的新篇章</p>
+    <p class="text-center">让爱以夫妻之名延续</p>
+  </div>
+
+  <!-- <p style="text-align:center; font-size:20px; margin:20px 0;">🎀 🕊️ 🎀</p> -->
+  <p class="text-center">🎀 我们的故事 🎀</p>
+  <!-- <p style="text-align:center; font-size:20px; margin:20px 0;">❤︎ ❁ ❤︎</p> -->
+  <!-- 两张并列图片 -->
+  <div class="section">
+    <div class="img-row">
+      <img src="img2.jpg">
+      <img src="img3.jpg">
+    </div>
+    <p class="text-center">💐 <span class="fancy-text">见证幸福的瞬间</span> 💐</p>
+  </div>
+
+  <!-- 文本段落 -->
+  <div class="section">
+    <p class="text-center bold-text">时间：2025年10月1日</p>
+    <p class="text-center bold-text">地点：湖北省蕲春县新华丽酒店</p>
+    <p class="text-center">❤️ 我们期待您的到来 ❤️</p>
+  </div>
+
+  <script>
+    // 音乐按钮逻辑
+    const bgm = document.getElementById('bgm');
+    const musicBtn = document.getElementById('musicBtn');
+    let playing = false;
+
+    musicBtn.addEventListener('click', (event) => {
+      event.stopPropagation();
+      if (playing) {
+        bgm.pause();
+        musicBtn.textContent = '▶';
+        musicBtn.classList.remove('playing');
+      } else {
+        bgm.play();
+        musicBtn.textContent = '⏸';
+        musicBtn.classList.add('playing');
+      }
+      playing = !playing;
+    });
+  </script>
+</body>
+</html>
