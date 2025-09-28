@@ -324,14 +324,14 @@
       });
 
       // 自动慢滚逻辑
-      const scrollSpeed = 0.3; // 每帧滚动像素
+      const scrollSpeed = 0.6; // 每帧滚动像素
       function autoScroll() {
         window.scrollBy(0, scrollSpeed);
         if ((window.innerHeight + window.scrollY) < document.body.scrollHeight) {
           requestAnimationFrame(autoScroll);
         }
       }
-      setTimeout(() => { autoScroll(); }, 2000);
+      setTimeout(() => { autoScroll(); }, 0);
     });
 
     musicBtn.addEventListener('click', (event) => {
