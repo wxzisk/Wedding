@@ -47,17 +47,20 @@
       margin: 40px 0;   /* 空行专用，加大间距 */
     }
     /* 图片上的文字 */
-    .img-text {
-      position: absolute;
-      bottom: 15px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: #fff;
-      font-size: 24px;
-      font-weight: bold;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-      font-family: 'Brush Script MT', cursive; /* 手写艺术字 */
-    }
+/* 图片上的文字：放在图片下方 */
+.img-text {
+  position: absolute;
+  bottom: 15px;        /* 靠近底部 */
+  left: 50%;           /* 水平居中 */
+  transform: translateX(-50%); 
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;  /* ✅ 让多行文字居中 */
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+  font-family: 'Brush Script MT', cursive;
+}
+
 
     /* 并排图片 */
     .img-row.horizontal {
@@ -115,18 +118,6 @@
     display: block;
   }
 
-  .img-text {
-    position: absolute;     /* 绝对定位 */
-    top: 50%;               /* 垂直居中 */
-    left: 50%;              /* 水平居中 */
-    transform: translate(-50%, -50%); /* 精确居中 */
-    color: white;           /* 白色文字，避免和背景冲突 */
-    font-size: 36px;        /* 调大字体 */
-    font-weight: bold;      /* 加粗 */
-    text-align: center;     /* 居中对齐 */
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.6); /* 增加阴影，提高可读性 */
-    line-height: 1.4;
-  }
   /* 标题：自适应字号，避免手机换行太丑 */
 .title {
   text-align: center;
@@ -207,16 +198,15 @@
     </div>
   </div> -->
 
-  <div class="section">
-    <div class="img-wrapper">
-      <img src="img1.jpg" class="img-single">
-      <div class="img-text">
-        <span class="date-text">10.1</span> <br>
-        <span class="wedding-text">我们的婚礼</span> <br>
-        <span class="love-text">Our Love</span>
-      </div>
-    </div>
+<div class="img-wrapper">
+  <img src="img1.jpg" class="img-single">
+  <div class="img-text">
+    <span class="date-text">10.1</span> <br>
+    <span class="wedding-text">我们的婚礼</span> <br>
+    <span class="love-text">Our Love</span>
   </div>
+</div>
+
   <!-- <p style="text-align:center; font-size:20px; margin:20px 0;">❀ ✿ ❀</p>
   <div style="text-align:center; margin:30px 0;">
     <svg xmlns="http://www.w3.org/2000/svg" width="200" height="20" viewBox="0 0 200 20">
@@ -226,7 +216,7 @@
   </div> -->
   <hr style="border: none; border-top: 3px double #ffb6c1; margin: 30px 0;">
   <p style="text-align:center;">
-    <span class="fancy-text">我们结婚了<br>Welcome to our wedding</span>
+    <span class="fancy-text">我们结婚啦<br>Welcome to our wedding</span>
   </p>
 
   <!-- 文本段落 -->
